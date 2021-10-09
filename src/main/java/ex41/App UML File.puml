@@ -1,0 +1,49 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+App : +static void main() throws IOException
+
+ArrayList : namesList : String[]
+ArrayList : namesList.add(nextName)
+
+class File {
+    namesUnorderedListFile : File
+    namesOrderedListFile : File
+    namesListInput.close()
+    namesListOutput.close()
+}
+
+class Scanner {
+    namesListInput : Scanner
+    namesListInput.hasNextLine()
+}
+
+class nextName {
+    nextName : String[]
+}
+
+class FileWriter {
+    namesListOutput : FileWriter
+    namesListOutput.write()
+}
+
+class Collections {
+    Collections.sort(namesList)
+}
+
+App *- ArrayList : contains >
+App *- File : contains >
+App *- Scanner : contains >
+App *- nextName : contains >
+App *- FileWriter : contains >
+App *- Collections : contains >
+
+Scanner -- File : input file read through <
+Scanner -- nextName : places file input into >
+nextName -- ArrayList : places file input into >
+ArrayList -- Collections : nameList sent to be sorted >
+ArrayList -- FileWriter : sorted nameList sent to be printed >
+Collections -- ArrayList : nameList sent back sorted >
+FileWriter -- File : text-based table & sorted names list  written into output file >
+
+@enduml

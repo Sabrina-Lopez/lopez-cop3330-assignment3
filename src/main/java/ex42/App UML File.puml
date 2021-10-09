@@ -1,0 +1,65 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+App : +static void main() throws IOException
+
+class recordsArrayList {
+    recordsList : String[]
+    recordsList.add(nextRecord)
+    recordsList.size()
+}
+
+class firstNamesArrayList {
+    firstNamesList : String[]
+    firstNamesList.add(recordDetails[0])
+    firstNamesList.get()
+}
+
+class lastNamesArrayList {
+    lastNamesList : String[]
+    lastNamesList.add(recordDetails[1])
+    lastNamesList.get()
+}
+
+class salariesArrayList {
+    salariesList : String[]
+    salariesList.add(recordDetails[2])
+    salariesList.get()
+}
+
+class File {
+    recordsListFile : File
+    recordsListInput.close()
+}
+
+class nextRecord {
+    nextRecord : String[]
+}
+
+class recordDetails {
+    recordDetails : String[]
+}
+
+class Scanner {
+    recordsListInput : Scanner
+    recordsListInput.hasNextLine()
+}
+
+App *- recordsArrayList : contains >
+App *- firstNamesArrayList : contains >
+App *- lastNamesArrayList : contains >
+App *- salariesArrayList : contains >
+App *- recordDetails : contains >
+App *- File : contains >
+App *- Scanner : contains >
+App *- nextRecord : contains >
+
+Scanner -- File : input read through <
+Scanner -- nextRecord : places file input into >
+nextRecord -- recordsArrayList : places file input into >
+recordsArrayList -- recordDetails : separate record components into different array lists >
+recordDetails -- firstNamesArrayList : first names from recordsList will go into >
+recordDetails -- lastNamesArrayList : last names from recordsList will go into >
+recordDetails -- salariesArrayList : last names from recordsList will go into >
+
+@enduml
