@@ -1,0 +1,105 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class App {
+    +static void main() throws IOException
+    +static void createdWebsiteFolder(String siteName)
+    +static void createdHtmlFile(String siteName, String authorName)
+    +static void createdJavaScriptFolder(String siteName)
+    +static void createdCssFolder(String siteName)
+}
+
+class createdWebsiteFolder {
+    websiteFile : String
+    websiteFolder : File
+    websiteFolderCreated : boolean
+    websiteFolder.mkdir()
+    websiteFolder.exists()
+
+    userWebsiteFile : String
+    userWebsiteFolder : File
+    userWebsiteFolderCreated : boolean
+    userWebsiteFolder.mkdir()
+    userWebsiteFolder.exists()
+
+    createWebsiteFolder(siteName)
+}
+
+class createdHtmlFile {
+    htmlFile : File
+    htmlFileCreated : boolean
+    htmlFileOutput : File Writer
+    htmlFile.createNewFile()
+    htmlFile.exists()
+    htmlFileOutput.write()
+    htmlFileOutput.close()
+
+    createHtmlFile(siteName, authorName)
+
+}
+
+class createdJavaScriptFolder {
+    javaScriptFolder : File
+    javaScriptFolderCreated : boolean
+    javaScriptFolder.mkdir()
+    javaScriptFolder.exists()
+
+    createJavaScriptFolder(siteName)
+
+}
+
+class createdCssFolder {
+    cssFolder : File
+    cssFolderCreated : boolean
+    cssFolder.mkdir()
+    cssFolder.exists()
+
+    createCssFolder(siteName)
+
+}
+
+class String {
+    yesResponse : String
+    siteName : String
+    authorName : String
+    javaScriptFolderResponse : String
+    cssFolderResponse : String
+}
+
+class Scanner {
+    siteNameInput : Scanner
+    siteNameInput.nextLine()
+
+    authorNameInput : Scanner
+    authorNameInput.nextLine()
+
+    javaScriptFolderResponseInput : Scanner
+    javaScriptFolderResponseInput.nextLine()
+
+    cssFolderResponseInput : Scanner
+    cssFolderResponseInput.nextLine()
+}
+
+App *- createdWebsiteFolder : contains >
+App *- createdHtmlFile : contains >
+App *- createdJavaScriptFolder : contains >
+App *- createdCssFolder : contains >
+App *- String : contains >
+App *- Scanner : contains >
+
+Scanner -- String : places user input into respective >
+String -- createdWebsiteFolder : siteName used as input for >
+String -- createdHtmlFile : siteName and authorName as input for >
+String -- createdJavaScriptFolder : if javaScriptFolderResponse = yesResponse, siteName used as input for >
+String -- createdCssFolder  : if cssFolderResponse == yesResponse, siteName used as input for >
+
+websiteFile -- websiteFolder : placed into >
+websiteFolder -- websiteFolderCreated : used to create file for >
+
+htmlFile -- htmlFileCreated : used to create file for >
+
+javaScriptFolder -- javaScriptFolderCreated : used to create file for >
+
+cssFolder -- cssFolderCreated : used to create file for >
+
+@enduml
