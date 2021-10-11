@@ -88,7 +88,7 @@ public class App {
     public static void createHtmlFile(String siteName, String authorName) throws IOException {
             //declare and initialize "htmlFile", a variable with the File class to establish the location for the html file
         File htmlFile = new File ("src\\main\\java\\ex43\\website\\" + siteName + "\\index.html");
-            //declare and initialize "htmlFileCreated, a variable with the boolean datatype to create and or ensure the existence of the html file
+            //declare and initialize "htmlFileCreated", a variable with the boolean datatype to create and or ensure the existence of the html file
         boolean htmlFileCreated = htmlFile.createNewFile();
             //declare and initialize "htmlFileOutput", a variable with the FileWriter class to write the html code in the html file
         FileWriter htmlFileOutput = new FileWriter(htmlFile);

@@ -44,8 +44,8 @@ public class App {
     }
 
     public static void validProductChecker(ArrayList<String> productNames, ArrayList<Double> productPrices, ArrayList<Integer> productQuantities) {
-        //declare and initialize "userProductNameInput", a variable with the File class to find and incorporate the
-        // "exercise44_input.json" file into the program to scan for input for the purpose to taking in the entire file as a string
+        //declare and initialize "userProductNameInput", a variable with the Scanner class to take in the input from the
+        // "exercise44_input.json" file into the program for the purpose to taking in the entire file as a string
         Scanner userProductNameInput = new Scanner(System.in);
 
         //declare and initialize "validProductName", a variable with the integer datatype to work as a flag to ensure the user's inputted product name
