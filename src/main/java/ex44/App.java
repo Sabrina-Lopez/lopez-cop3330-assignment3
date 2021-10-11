@@ -44,6 +44,10 @@ public class App {
         // "exercise44_input.json" file into the program to scan for input for the purpose to taking in the entire file as a string
         Scanner userProductNameInput = new Scanner(System.in);
 
+        validProductChecker(userProductNameInput, productNames, productPrices, productQuantities);
+    }
+
+    public static void validProductChecker(Scanner userProductNameInput, ArrayList<String> productNames, ArrayList<Double> productPrices, ArrayList<Integer> productQuantities) {
         //declare and initialize "validProductName", a variable with the integer datatype to work as a flag to ensure the user's inputted product name
         // is a valid product name or, in other words, is within the json list of products that are in stock
         int validProductName = 1; //initialized as invalid till proven valid
