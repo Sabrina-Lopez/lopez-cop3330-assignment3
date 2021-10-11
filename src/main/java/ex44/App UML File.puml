@@ -1,0 +1,73 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class App {
+    +static void main() throws IOException
+    +static void validProductChecker(ArrayList<String> productNames,
+        ArrayList<Double> productPrices, ArrayList<Integer> productQuantities)
+    +static class ProductDetails
+    +static class JsonParse
+
+}
+
+File : jsonFile : File
+String : userProductName : String
+
+class main {
+    gson : Gson
+    GsonBuilder().create()
+    jsonParser : JsonParse
+    gson.fromJson(Files.readString(jsonFile.toPath()), JsonParse.class)
+
+    productNames.add(product.name)
+    productPrices.add(product.price)
+    productQuantities.add(product.quantity)
+}
+
+class validProductChecker {
+    userProductNameInput : Scanner
+    validProductName : integer
+    userProductName.equals(productNames.get(i))
+    productNames.get(i)
+    productPrices.get(i)
+    productQuantities.get(i)
+
+    validProductChecker(productNames, productPrices, productQuantities)
+}
+
+class ProductDetails {
+    name : String
+    price : double
+    quantity : integer
+}
+
+JsonParse : products : List<ProductDetails>
+
+class ArrayList {
+    productNames : ArrayList<String>
+    productPrices : ArrayList<String>
+    productQuantities : ArrayList<String>
+}
+
+class Scanner {
+    userProductNameInput : Scanner
+    userProductNameInput.next()
+}
+
+App *- main : contains >
+App *- validProductChecker : contains >
+App *- ProductDetails : contains >
+App *- JsonParse : contains >
+main *- ArrayList : has the declared >
+main *- File : contains >
+validProductChecker *- Scanner : contains >
+validProductChecker *- String : contains >
+
+main -- File : gson built to permit reading from >
+File -- main : file read through jsonParser in >
+main -- main : jsonParser input separated b/w ArrayLists in >
+
+Scanner -- String : scanned user input placed into >
+validProductChecker -- validProductChecker : product name comparison => (validProductName == 1 or 0) >
+
+@enduml
