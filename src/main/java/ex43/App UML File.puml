@@ -86,6 +86,10 @@ App *- createdJavaScriptFolder : contains >
 App *- createdCssFolder : contains >
 App *- String : contains >
 App *- Scanner : contains >
+createdWebsiteFolder *- websiteFile : contains >
+createdHtmlFile *- htmlFile : contains >
+createdJavaScriptFolder *- javaScriptFolder : contains >
+createdCssFolder *- cssFolder : contains >
 
 Scanner -- String : places user input into respective >
 String -- createdWebsiteFolder : siteName used as input for >
