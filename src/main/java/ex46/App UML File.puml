@@ -1,27 +1,87 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+class App {
+    +static void main() throws IOException
+    +static String wordsAppendedFunction(File wordInputFile) throws FileNotFoundException
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+class File {
+    wordInputFile : File
+    wordsInput.close()
+    wordsAppendedInput.close()
 }
+
+class Integer {
+    tempNumOccurrences : integer
+    validNewWord : integer
+}
+
+class String {
+    nextWord : String
+    wordsAppended : String
+    tempWord : String
+    nextWord.equals(s)
+    wordsAppended.replace("null","")
+}
+
+class wordsAppendedFunction {
+    wordsAppendedFunction(wordInputFile)
+}
+
+class wordsList {
+    wordsList : ArrayList<String>
+    wordsList.add(0, null)
+    wordsList.add(nextWord)
+    wordsList.remove(0)
+    wordsList.size()
+    wordsList.get(j)
+    wordsList.set(j, wordsList.get(j + 1))
+}
+
+class wordOccurrences {
+    wordOccurrences : ArrayList<Integer>
+    wordOccurrences.add(StringUtils.countMatches(wordsAppended, s))
+    wordOccurrences.get(j)
+    wordOccurrences.get(j + 1)
+    wordOccurrences.set(j, wordOccurrences.get(j + 1))
+    wordOccurrences.set((j + 1), tempNumOccurrences)
+}
+
+class wordsInput {
+    wordsInput : Scanner
+    wordsInput.hasNext()
+    wordsInput.next()
+}
+
+class wordsAppendedInput {
+    wordsAppendedInput : Scanner
+    wordsAppendedInput.hasNextLine()
+    wordsAppendedInput.nextLine()
+}
+
+App *- main : contains >
+App *- wordsAppendedFunction : contains >
+
+main *- wordsList : contains >
+main *- wordOccurrences : contains >
+main *- File : contains >
+main *- Scanner : contains >
+main *- Integer : contains >
+main *- wordsInput : contains >
+
+wordsAppendedFunction *- wordsAppendedInput : contains >
+wordsAppendedFunction *- Scanner : contains >
+wordsAppendedFunction *- String : contains >
+
+File -- Scanner : is inputted into >
+Scanner -- String : is inputted into >
+Integer -- wordsList : determines if a new word is added to >
+wordsAppendedFunction -- String : result goes into wordsAppended >
+wordsAppended -- wordOccurrences : number of instances of a word in wordsAppended goes into >
+wordsList -- String : during bubble sort, each word inputted into >
+wordOccurrences -- String : during bubble sort, each occurrence value inputted into >
+wordsList -- wordsList : words of ArrayList swap depending on wordOccurrences >
+wordOccurrences -- wordOccurrences : values of ArrayList swap if left value greater than right value >
 
 @enduml
