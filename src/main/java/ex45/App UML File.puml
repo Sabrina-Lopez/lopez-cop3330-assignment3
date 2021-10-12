@@ -1,0 +1,78 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class App {
+    +static void main() throws IOException
+    +static ArrayList<String> utilizeWordRemover(String utilizeVariant, String utilize,
+        String utilized, String utilizes, String utilizing, ArrayList<String> ex45InputLines)
+
+}
+
+class File {
+    ex45InputFile : File
+
+    ex45OutputFile : File
+    ex45OutputFileOutput : FileWriter
+    ex45OutputFile.createNewFile()
+    ex45OutputFileCreated()
+    ex45OutputFileOutput.write()
+    ex45OutputFileOutput.close()
+}
+
+class String {
+    utilizeVariant : String
+    utilized : String
+    utilizes : String
+    utilize : String
+    utilizing : String
+
+}
+
+class main {
+    ex45OutputFileCreated : boolean
+}
+
+class utilizeWordRemover {
+    inputLine.contains(utilizeVariant)
+
+    utilizeWordRemover(utilizeVariant, utilize, utilized, utilizes, utilizing, ex45InputLines)
+}
+
+class ArrayList {
+    ex45InputLines : ArrayList<String>
+    ex45InputLines.add(nextLine)
+
+    ex45ChangedInputLines : ArrayList<String>
+    ex45ChangedInputLines.add(inputLine.replace(utilize, "use"))
+    ex45ChangedInputLines.add(inputLine)
+}
+
+class Scanner {
+    inputLinesInput : Scanner
+    inputLinesInput.nextLine()
+    inputLinesInput.hasNextLine()
+
+    outputFileNameInput : Scanner
+    outputFileNameInput.nextLine()
+}
+
+App *- main : contains >
+App *- utilizeWordRemover : contains >
+main *- File : contains >
+main *- String : contains >
+main *- Scanner : contains >
+main *- ArrayList : contains >
+utilizeWordRemover *- ArrayList : contains >
+
+File -- Scanner : input file inputted into >
+Scanner -- String : scanned lines put into >
+Scanner -- String : user output file name put into >
+String -- ArrayList : string put into ex45InputLines >
+ArrayList -- utilizeWordRemover : result inputted into <
+File -- main : file inputted into boolean in >
+File -- ArrayList : modified input lines printed to output file in >
+
+String -- utilizeWordRemover : utilize word variations put into >
+ArrayList -- ArrayList : ex45InputLines put into ex45ChangedInputLines, modified or not >
+
+@enduml
