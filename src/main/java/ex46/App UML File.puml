@@ -84,4 +84,6 @@ wordOccurrences -- String : during bubble sort, each occurrence value inputted i
 wordsList -- wordsList : words of ArrayList swap depending on wordOccurrences >
 wordOccurrences -- wordOccurrences : values of ArrayList swap if left value greater than right value >
 
+wordsAppendedFunction -- wordsAppendedFunction : appends input file via own for loop >
+
 @enduml
