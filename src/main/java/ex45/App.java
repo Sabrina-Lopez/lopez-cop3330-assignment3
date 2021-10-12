@@ -63,7 +63,7 @@ public class App {
         FileWriter ex45OutputFileOutput = new FileWriter(ex45OutputFile);
 
         if(ex45OutputFileCreated) { //if the output file has been created
-            //for "the current product (e.g., first, second, fifth) in the line of output from the "ex45OutputLines" ArrayList until all the lines
+            //for "the current line of output (e.g., first, second, fifth) from the "ex45OutputLines" ArrayList until all the lines
             // have been outputted to the newly created output file
             for (String ex45ChangedInputLine : ex45ChangedInputLines) {
                 ex45OutputFileOutput.write(ex45ChangedInputLine + "\n"); //output to the output file the next line from the modified input lines ArrayList
@@ -75,7 +75,7 @@ public class App {
     public static ArrayList<String> utilizeWordRemover(String utilizeVariant, String utilize, String utilized, String utilizes, String utilizing, ArrayList<String> ex45InputLines) {
         ArrayList<String> ex45ChangedInputLines = new ArrayList<>();
 
-        //for "the current product (e.g., first, second, fifth) in the line of input from the "ex45InputLines" ArrayList until all the lines
+        //for "the current line of output (e.g., first, second, fifth) from the "ex45InputLines" ArrayList until all the lines
         // have been modified to have 'use' instead 'utilize'"
         for (String inputLine : ex45InputLines) {
             if (inputLine.contains(utilizeVariant)) { //if the line contains a variant of "utilize"
