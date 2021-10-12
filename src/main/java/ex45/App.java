@@ -42,24 +42,7 @@ public class App {
         }
 
         //declare "ex45ChangedInputLines", a variable with the ArrayList datatype to hold the modified lines of input
-        ArrayList<String> ex45ChangedInputLines = new ArrayList<>();
-
-        //for "the current product (e.g., first, second, fifth) in the line of input from the "ex45InputLines" ArrayList until all the lines
-        // have been modified to have 'use' instead 'utilize'"
-        for (String inputLine : ex45InputLines) {
-            if (inputLine.contains(utilizeVariant)) { //if the line contains a variant of "utilize"
-                ex45ChangedInputLines.add(inputLine.replace(utilize, "use")); //change "utilize" to "use" and add new line of input into the "ex45ChangedInputLines" ArrayList
-            } else if (inputLine.contains(utilizes)) { //if the line contains "utilizes"
-                ex45ChangedInputLines.add(inputLine.replace(utilizes, "uses")); //change "utilizes" to "uses" and add new line of input into the "ex45ChangedInputLines" ArrayList
-            } else if (inputLine.contains(utilized)) { //if the line contains "utilized"
-                ex45ChangedInputLines.add(inputLine.replace(utilized, "used")); //change "utilized" to "used" and add new line of input into the "ex45ChangedInputLines" ArrayList
-            } else if (inputLine.contains(utilizing)) { //if the line contains "utilizing"
-                ex45ChangedInputLines.add(inputLine.replace(utilizing, "using")); //change "utilizing" to "using" and add new line of input into the "ex45ChangedInputLines" ArrayList
-            }
-            else { //if the line doesn't contain a variant of "utilize"
-                ex45ChangedInputLines.add(inputLine); //add the line as a new line of input into the "ex45ChangedInputLines" ArrayList
-            }
-        }
+        ArrayList<String> ex45ChangedInputLines = utilizeWordRemover(utilizeVariant, utilize, utilized, utilizes, utilizing, ex45InputLines);
 
         //output to the user the question of what output name they want for their output file
         System.out.print("\nWhat is the output name? ");
@@ -87,5 +70,28 @@ public class App {
             }
             ex45OutputFileOutput.close(); //close the output file via ending the File Writer variable
         }
+    }
+
+    public static ArrayList<String> utilizeWordRemover(String utilizeVariant, String utilize, String utilized, String utilizes, String utilizing, ArrayList<String> ex45InputLines) {
+        ArrayList<String> ex45ChangedInputLines = new ArrayList<>();
+
+        //for "the current product (e.g., first, second, fifth) in the line of input from the "ex45InputLines" ArrayList until all the lines
+        // have been modified to have 'use' instead 'utilize'"
+        for (String inputLine : ex45InputLines) {
+            if (inputLine.contains(utilizeVariant)) { //if the line contains a variant of "utilize"
+                ex45ChangedInputLines.add(inputLine.replace(utilize, "use")); //change "utilize" to "use" and add new line of input into the "ex45ChangedInputLines" ArrayList
+            } else if (inputLine.contains(utilizes)) { //if the line contains "utilizes"
+                ex45ChangedInputLines.add(inputLine.replace(utilizes, "uses")); //change "utilizes" to "uses" and add new line of input into the "ex45ChangedInputLines" ArrayList
+            } else if (inputLine.contains(utilized)) { //if the line contains "utilized"
+                ex45ChangedInputLines.add(inputLine.replace(utilized, "used")); //change "utilized" to "used" and add new line of input into the "ex45ChangedInputLines" ArrayList
+            } else if (inputLine.contains(utilizing)) { //if the line contains "utilizing"
+                ex45ChangedInputLines.add(inputLine.replace(utilizing, "using")); //change "utilizing" to "using" and add new line of input into the "ex45ChangedInputLines" ArrayList
+            }
+            else { //if the line doesn't contain a variant of "utilize"
+                ex45ChangedInputLines.add(inputLine); //add the line as a new line of input into the "ex45ChangedInputLines" ArrayList
+            }
+        }
+
+        return ex45ChangedInputLines;
     }
 }
